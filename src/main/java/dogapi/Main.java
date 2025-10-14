@@ -24,8 +24,16 @@ public class Main {
      * returned by the fetcher
      */
     public static int getNumberOfSubBreeds(String breed, BreedFetcher breedFetcher) {
-        // TODO Task 3 implement this code so that it is entirely consistent with its provided documentation.
-        // return statement included so that the starter code can compile and run.
+        try {
+            List<String> result = breedFetcher.getSubBreeds(breed);
+            if (result.size() == 1 && result.get(0).equals("error")) {
+                return -1;
+            }
+            else {
+                return result.size();
+            }
+        }
+        catch (Exception e) {System.out.println(e);}
         return -1;
     }
 }
