@@ -42,7 +42,7 @@ public class DogApiBreedFetcher implements BreedFetcher {
                 subBreeds.add(jsonArray.getString(i));
             }
         }
-        catch (Exception e) {System.out.println(e.getMessage());}
+        catch (IOException e) {System.out.println(e.getMessage());}
         return subBreeds;
     }
 }
