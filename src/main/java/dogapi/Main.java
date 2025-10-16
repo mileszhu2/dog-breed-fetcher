@@ -29,6 +29,6 @@ public class Main {
             return result.size();
         }
         catch (Exception e) {System.out.println(e);}
-        return -1;
+        return 0;
     }
 }
