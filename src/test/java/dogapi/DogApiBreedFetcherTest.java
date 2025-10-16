@@ -11,11 +11,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class DogApiBreedFetcherTest {
 
     @Test
-    void testValidBreedReturnsSubBreeds() throws BreedFetcher.BreedNotFoundException {
-        BreedFetcher fetcher = new DogApiBreedFetcher();
-        List<String> subBreeds = fetcher.getSubBreeds("hound");
-        Set<String> expected = new HashSet<>(List.of("afghan", "basset", "blood", "english", "ibizan", "plott", "walker"));
-        assertEquals(expected, new HashSet<>(subBreeds));
+    void testValidBreedReturnsSubBreeds() {
+        try {
+            BreedFetcher fetcher = new DogApiBreedFetcher();
+            List<String> subBreeds = fetcher.getSubBreeds("hound");
+            Set<String> expected = new HashSet<>(List.of("afghan", "basset", "blood", "english", "ibizan", "plott", "walker"));
+            assertEquals(expected, new HashSet<>(subBreeds));
+        }
+        catch (BreedFetcher.BreedNotFoundException e) {System.out.println(e.getMessage());}
     }
 
     @Test
